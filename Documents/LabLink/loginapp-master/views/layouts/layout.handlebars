@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LabLink</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            {{#if user}}
+              <li role="presentation"><a href="/">Dashboard</a></li>
+              <li role="presentation"><a href="/users/logout">Logout</a></li>
+            {{else}}
+              <li role="presentation"><a href="/users/login">Login</a></li>
+              <li role="presentation"><a href="/users/register">Register</a></li>
+            {{/if}}
+          </ul>
+        </nav>
+        <h3 class="text-muted"><a href="/">LabLink</a><img src='https://image.ibb.co/nx68QF/lablinklogosupersmall.jpg'></img>   </h3>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-12">
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+          
+          {{{body}}}
+        </div>
+
+        
+      </div>
+  {{#if user}}
+  ""
+  {{else}}
+  <div class="center hero-unit">
+
+
+    <center>
+    <h1>New to LabLink?</h1>
+    <h2>LabLink helps providers and organizations update and customize the style of patient lab reports to meet their wants and needs.</h2>
+      <button onclick=" window.location='/users/register';">Create a Provider Profile</button>
+  </center>
+
+  </div>
+  {{/if}}
+      <center><img src='https://image.ibb.co/gYw6ea/lablinklogosmall.jpg'></img></center>
+
+      <footer class="footer">
+        <p>&copy; 2017 LabLink, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+</body>
+</html>

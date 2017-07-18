@@ -1,0 +1,74 @@
+<h2 class="page-header">Create Template</h2>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+<form method="post" action="/templates/newTemplate">
+	<div class="form-group">
+	 <label>Report Template Name</label>
+	 <input type="text" class="form-control"
+	 placeholder="Template Name" name="reportName">
+	</div>
+	<div class="form-group">
+	 <label>Delivery Method</label>
+	 <select name="delivery">
+  		<option value="Print">Print</option>
+  		<option value="Fax">Fax</option>
+  		<option value="Online">Online</option>
+	</select>  
+	</div>
+	<div class="form-group">
+	  <label>Report Destination</label>
+	  <input type="text" class="form-control"
+	 placeholder="Where will the report go?" name="destination">
+	</div>
+	<div class="form-group">
+	 <label>Paper Saver</label>
+	 <select name="paper_saver">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Critical First</label>
+	 <select name="critical_first">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Abnormal Highlight</label>
+	 <select name="abnormal_highlight">
+  		<option value="Color">Color</option>
+  		<option value="Columns">Columns</option>
+  		<option value="Both">Both</option>
+	</select>  
+	</div>
+	<div class="form-group">
+	 <label>Space Saver</label>
+	 <select name="space_saver">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Repeat Header</label>
+	 <select name="repeat_header">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Repeat Collection</label>
+	 <select name="repeat_collection">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+
+    </div>
+
+
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>

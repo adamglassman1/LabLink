@@ -1,0 +1,110 @@
+ 
+ {{#if user}}
+<div style="float: left; width: 50%;">
+   <h2 class="page-header">Create Template</h2>
+   {{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+    {{/if}}
+  <form method="post" action="/templates/newTemplate">
+	<div class="form-group">
+	 <label>Report Template Name</label>
+	 <input type="text" class="form-control"
+	 placeholder="Template Name" name="reportName">
+	</div>
+	<div class="form-group">
+	 <label>Delivery Method</label>
+	 <select name="delivery">
+  		<option value="Print">Print</option>
+  		<option value="Fax">Fax</option>
+  		<option value="Online">Online</option>
+	</select>  
+	</div>
+	<div class="form-group">
+	  <label>Report Destination</label>
+	  <input type="text" class="form-control"
+	 placeholder="Where will the report go?" name="destination">
+	</div>
+	<div class="form-group">
+	 <label>Paper Saver</label>
+	 <select name="paper_saver">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Critical First</label>
+	 <select name="critical_first">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Abnormal Highlight</label>
+	 <select name="abnormal_highlight">
+  		<option value="Color">Color</option>
+  		<option value="Columns">Columns</option>
+  		<option value="Both">Both</option>
+	</select>  
+	</div>
+	<div class="form-group">
+	 <label>Space Saver</label>
+	 <select name="space_saver">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Repeat Header</label>
+	 <select name="repeat_header">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<div class="form-group">
+	 <label>Repeat Collection</label>
+	 <select name="repeat_collection">
+  		<option value=true>Yes</option>
+  		<option value=false>No</option>
+	</select> 
+	</div> 
+	<button type="submit" class="btn btn-default">Submit</button>
+   </form>
+   </div>
+<div style="float: right; width: 50%;">
+  <h2 class="page-header">{{user.name}}'s Templates</h2>
+  
+  <a href="/templateList">LOAD DATA</a>
+    <div>
+        {{# each items }}
+            <article class="item">
+                <div><b>Report Name:</b> {{ this.reportName }}</div>
+                <div><b>Delivery:</b> {{ this.delivery }}</div>
+                <div><b>destination:</b> {{ this.destination }}</div>
+                <div><b>Paper Saver:</b> {{ this.paper_saver }}</div>
+                <div><b>Critical First:</b> {{ this.critical_first }}</div>
+                <div><b>Abnormal Highlights:</b> {{ this.abnormal_highlight }}</div>
+                <div><b>Space Saver:</b> {{ this.space_saver }}</div>
+                <div><b>Repeat Header:</b> {{ this.repeat_header }}</div>
+                <div><b>Repeat Collection:</b> {{this.repeat_collection}}</div>
+            </article>
+        {{/each}}
+</div>
+     <img src='https://image.ibb.co/niC72v/resultreportpromosmall.png'/> 
+  </div>
+
+   {{else}}
+  <center><h2 class="page-header">Welcome to LabLink!</h2></center>
+  	
+  	<div class="center hero-unit">
+
+   		 <center><h2>LabLink helps providers and organizations update and customize the style of patient lab reports to meet their wants and needs.</h2>
+     	 <button onclick=" window.location='/users/register';">Create a Provider Profile</button>
+ 		 </center>
+
+    </div>
+
+      <center><img src='https://image.ibb.co/gKQq5F/lablink_d5593cdec2356d563f6cfc17130ff152.jpg'></img></center>
+            
+  {{/if}}
